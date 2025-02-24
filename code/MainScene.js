@@ -21,10 +21,21 @@ export default class MainScene extends Phaser.Scene {
         this.load.image('scene2', 'images/shj.png');//售货架
 
         this.load.image('scene3', 'images/js.png');//教室
+
+        this.load.image('pt', 'images/pt.png');//拼图
+        this.load.image('pt1', 'images/pt1.png');
+        this.load.image('pt2', 'images/pt2.png');
+        this.load.image('pt3', 'images/pt3.png');
+        this.load.image('pt4', 'images/pt4.png');
+        this.load.image('pt5', 'images/pt5.png');
+        this.load.image('pt6', 'images/pt6.png');
+        this.load.image('pt7', 'images/pt7.png');
+        this.load.image('pt8', 'images/pt8.png');
+        this.load.image('pt9', 'images/pt9.png');
     }
 
     create() {
-        // this.scene.start('Scene1');
+        this.scene.start('Pt');
 
 
 

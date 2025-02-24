@@ -3,6 +3,7 @@ import Scene1 from './Scene1.js';
 import Scene2 from './Scene2.js';
 import Scene3 from './Scene3.js';
 import Scene1_1 from './Scene1_1.js';
+import Pt from './Pt.js';
 
 const config = {
     type: Phaser.AUTO,
@@ -13,7 +14,7 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [MainScene, Scene1, Scene1_1, Scene2, Scene3],
+    scene: [MainScene, Scene1, Scene1_1, Scene2, Scene3,Pt],
     physics: {
         default: 'arcade',
         arcade: {
