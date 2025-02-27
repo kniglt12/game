@@ -44,14 +44,14 @@ export default class MainScene extends Phaser.Scene {
         this.load.image('pts9', 'images/pts9.png');
 
         this.load.image('ks', 'images/ks.png');//看书
-        this.load.image('ks1', 'images/ks1.png');
+        this.load.image('ks1', 'images/ks2.png');
 
         this.load.image('lt', 'images/lt.png');//辣条
-        this.load.image('lt1', 'images/lt1.png');
+        this.load.image('lt1', 'images/lt2.png');
     }
 
     create() {
-        this.scene.start('Scene1');
+        // this.scene.start('Scene1');
 
 
 
