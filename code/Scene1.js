@@ -1,3 +1,4 @@
+import { pt7Find, pt8Find, pt9Find } from './global.js';
 let finished2 = false;
 let finished1 = false;
 export default class Scene1 extends Phaser.Scene {
@@ -20,7 +21,7 @@ export default class Scene1 extends Phaser.Scene {
         background.displayWidth = width;
         background.displayHeight = height;
 
-        const zone1 = this.add.zone(615, 375, 220, 100).setOrigin(0, 0).setInteractive();
+        const zone1 = this.add.zone(620, 375, 220, 100).setOrigin(0, 0).setInteractive();
         const zone2 = this.add.zone(1090, 355, 70, 80).setOrigin(0, 0).setInteractive();
         const zone3 = this.add.zone(1550, 220, 170, 160).setOrigin(0, 0).setInteractive();
 
@@ -60,6 +61,19 @@ export default class Scene1 extends Phaser.Scene {
                 this.checkReturnToMainScene();
             }
         });
+
+
+        if (!pt7Find) {
+            const pts7 = this.add.image(0, 0, 'pts7').setOrigin(0, 0);
+            const zonex = this.add.zone(1160, 425, 50, 20).setOrigin(0, 0).setInteractive();
+            graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            zonex.once('pointerdown', () => {
+                this.add.image(0, 0, 'pt7').setOrigin(960, 540);
+
+                pts7.destroy();
+                pt7Find = 1;
+            });
+        }
     }
     checkReturnToMainScene() {
         if (finished1 && finished2) {

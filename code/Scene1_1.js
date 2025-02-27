@@ -121,7 +121,7 @@ export default class Scene1_1 extends Phaser.Scene {
             );
             // 秒针角度：秒*6
             miaozhen.rotation = Phaser.Math.DegToRad(currentTime_m * 6);
-            console.log(currentTime_s, currentTime_f, currentTime_m);
+            // console.log(currentTime_s, currentTime_f, currentTime_m);
             if (currentTime_s === 7 && currentTime_f === 30 && currentTime_m === 0) {
                 this.input.off('dragstart');
                 this.input.off('drag');

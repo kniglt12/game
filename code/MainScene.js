@@ -32,10 +32,26 @@ export default class MainScene extends Phaser.Scene {
         this.load.image('pt7', 'images/pt7.png');
         this.load.image('pt8', 'images/pt8.png');
         this.load.image('pt9', 'images/pt9.png');
+
+        this.load.image('pts1', 'images/pts1.png');//拼图碎片
+        this.load.image('pts2', 'images/pts2.png');
+        this.load.image('pts3', 'images/pts3.png');
+        this.load.image('pts4', 'images/pts4.png');
+        this.load.image('pts5', 'images/pts5.png');
+        this.load.image('pts6', 'images/pts6.png');
+        this.load.image('pts7', 'images/pts7.png');
+        this.load.image('pts8', 'images/pts8.png');
+        this.load.image('pts9', 'images/pts9.png');
+
+        this.load.image('ks', 'images/ks.png');//看书
+        this.load.image('ks1', 'images/ks1.png');
+
+        this.load.image('lt', 'images/lt.png');//辣条
+        this.load.image('lt1', 'images/lt1.png');
     }
 
     create() {
-        this.scene.start('Pt');
+        this.scene.start('Scene1');
 
 
 
