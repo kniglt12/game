@@ -1,4 +1,5 @@
 import { pt7Find, pt8Find, pt9Find } from './global.js';
+import { setPt7Find, setPt8Find, setPt9Find } from './global.js'; // 添加 setter 函数的导入
 let finished2 = false;
 let finished1 = false;
 export default class Scene1 extends Phaser.Scene {
@@ -68,10 +69,58 @@ export default class Scene1 extends Phaser.Scene {
             const zonex = this.add.zone(1160, 425, 50, 20).setOrigin(0, 0).setInteractive();
             graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
             zonex.once('pointerdown', () => {
-                this.add.image(0, 0, 'pt7').setOrigin(960, 540);
-
+                let wsPt7 = this.add.image(0, 0, 'ws_pt7').setOrigin(0, 0);
                 pts7.destroy();
-                pt7Find = 1;
+                this.time.delayedCall(500, () => {
+                    this.input.once('pointerdown', () => {
+                        if (wsPt7) {
+                            // console.log('destroy wsPt7');
+                            wsPt7.destroy();
+                            wsPt7 = null;
+                        }
+                    });
+                });
+                setPt7Find(true);
+            });
+        }
+
+        if (!pt8Find) {
+            const pts8 = this.add.image(0, 0, 'pts8').setOrigin(0, 0);
+            const zonex = this.add.zone(1521, 338, 47, 53).setOrigin(0, 0).setInteractive();
+            graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            zonex.once('pointerdown', () => {
+                let wsPt8 = this.add.image(0, 0, 'ws_pt8').setOrigin(0, 0);
+                pts8.destroy();
+                this.time.delayedCall(500, () => {
+                    this.input.once('pointerdown', () => {
+                        if (wsPt8) {
+                            // console.log('destroy wsPt8');
+                            wsPt8.destroy();
+                            wsPt8 = null;
+                        }
+                    });
+                });
+                setPt8Find(true);
+            });
+        }
+
+        if (!pt9Find) {
+            const pts9 = this.add.image(0, 0, 'pts9').setOrigin(0, 0);
+            const zonex = this.add.zone(590, 427, 36, 24).setOrigin(0, 0).setInteractive();
+            graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            zonex.once('pointerdown', () => {
+                let wsPt9 = this.add.image(0, 0, 'ws_pt9').setOrigin(0, 0);
+                pts9.destroy();
+                this.time.delayedCall(500, () => {
+                    this.input.once('pointerdown', () => {
+                        if (wsPt9) {
+                            // console.log('destroy wsPt9');
+                            wsPt9.destroy();
+                            wsPt9 = null;
+                        }
+                    });
+                });
+                setPt9Find(true);
             });
         }
     }

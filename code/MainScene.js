@@ -17,6 +17,9 @@ export default class MainScene extends Phaser.Scene {
         this.load.image('sz', 'images/nz_sz.png');//时针
         this.load.image('fz', 'images/nz_fz.png');//分针
         this.load.image('mz', 'images/nz_mz.png');//秒针
+        this.load.image('ws_pt7', 'images/ws_pt7.png');
+        this.load.image('ws_pt8', 'images/ws_pt8.png');
+        this.load.image('ws_pt9', 'images/ws_pt9.png');
 
         this.load.image('scene2', 'images/shj.png');//售货架
 
@@ -51,7 +54,7 @@ export default class MainScene extends Phaser.Scene {
     }
 
     create() {
-        // this.scene.start('Scene1');
+        this.scene.start('Scene1');
 
 
 
@@ -100,7 +103,7 @@ export default class MainScene extends Phaser.Scene {
                 this.ct1.setDepth(1);
                 this.ct1.displayWidth = width;
                 this.ct1.displayHeight = height;
-                this.cameras.main.fadeOut(2000, 0, 0, 0);
+                this.cameras.main.fadeOut(1000, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
@@ -117,7 +120,7 @@ export default class MainScene extends Phaser.Scene {
                 this.ct2.setDepth(2);
                 this.ct2.displayWidth = width;
                 this.ct2.displayHeight = height;
-                this.cameras.main.fadeOut(2000, 0, 0, 0);
+                this.cameras.main.fadeOut(1000, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
@@ -134,7 +137,7 @@ export default class MainScene extends Phaser.Scene {
                 this.ct3.setDepth(1);
                 this.ct3.displayWidth = width;
                 this.ct3.displayHeight = height;
-                this.cameras.main.fadeOut(2000, 0, 0, 0);
+                this.cameras.main.fadeOut(1000, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
