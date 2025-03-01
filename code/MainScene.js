@@ -6,55 +6,26 @@ export default class MainScene extends Phaser.Scene {
         super({ key: 'MainScene' });
     }
 
-    preload() {
-        this.load.image('ct', 'images/ct.png');//主界面抽屉
-        this.load.image('ct1', 'images/ct1.png');//左上
-        this.load.image('ct2', 'images/ct2.png');//中上
-        this.load.image('ct3', 'images/ct3.png');//右上
 
-        this.load.image('scene1', 'images/ws.png');//卧室
-        this.load.image('scene1_1', 'images/nz.png');//闹钟
-        this.load.image('sz', 'images/nz_sz.png');//时针
-        this.load.image('fz', 'images/nz_fz.png');//分针
-        this.load.image('mz', 'images/nz_mz.png');//秒针
-        this.load.image('ws_pt7', 'images/ws_pt7.png');
-        this.load.image('ws_pt8', 'images/ws_pt8.png');
-        this.load.image('ws_pt9', 'images/ws_pt9.png');
-
-        this.load.image('scene2', 'images/shj.png');//售货架
-
-        this.load.image('scene3', 'images/js.png');//教室
-
-        this.load.image('pt', 'images/pt.png');//拼图
-        this.load.image('pt1', 'images/pt1.png');
-        this.load.image('pt2', 'images/pt2.png');
-        this.load.image('pt3', 'images/pt3.png');
-        this.load.image('pt4', 'images/pt4.png');
-        this.load.image('pt5', 'images/pt5.png');
-        this.load.image('pt6', 'images/pt6.png');
-        this.load.image('pt7', 'images/pt7.png');
-        this.load.image('pt8', 'images/pt8.png');
-        this.load.image('pt9', 'images/pt9.png');
-
-        this.load.image('pts1', 'images/pts1.png');//拼图碎片
-        this.load.image('pts2', 'images/pts2.png');
-        this.load.image('pts3', 'images/pts3.png');
-        this.load.image('pts4', 'images/pts4.png');
-        this.load.image('pts5', 'images/pts5.png');
-        this.load.image('pts6', 'images/pts6.png');
-        this.load.image('pts7', 'images/pts7.png');
-        this.load.image('pts8', 'images/pts8.png');
-        this.load.image('pts9', 'images/pts9.png');
-
-        this.load.image('ks', 'images/ks.png');//看书
-        this.load.image('ks1', 'images/ks2.png');
-
-        this.load.image('lt', 'images/lt.png');//辣条
-        this.load.image('lt1', 'images/lt2.png');
-    }
 
     create() {
-        this.scene.start('Scene1');
+        // this.scene.start('Scene1');
+        //ui
+        this.add.image(0, 0, 'ui').setOrigin(0, 0);
+        // console.log('add ui');
+        const ui1 = this.add.zone(26, 10, 80, 80).setOrigin(0, 0).setInteractive();//返回
+        const ui2 = this.add.zone(816, 0, 288, 109).setOrigin(0, 0).setInteractive();//主菜单
+        const ui3 = this.add.zone(1815, 10, 80, 80).setOrigin(0, 0).setInteractive();//设置
+
+        ui1.on('pointerdown', () => {
+            this.scene.start('Menu');
+        });
+        ui2.on('pointerdown', () => {
+            this.scene.start('Menu');
+        });
+        ui3.on('pointerdown', () => {
+            this.scene.start('Setting');
+        });
 
 
 
@@ -103,13 +74,17 @@ export default class MainScene extends Phaser.Scene {
                 this.ct1.setDepth(1);
                 this.ct1.displayWidth = width;
                 this.ct1.displayHeight = height;
-                this.cameras.main.fadeOut(1000, 0, 0, 0);
+                this.cameras.main.fadeOut(500, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
                 this.cameras.main.on("camerafadeoutcomplete", () => {
                     this.scene.start('Scene1');
                 });
+            }
+            else {
+                drawerOpen1 = false;
+                this.ct1.destroy();
             }
         });
 
@@ -120,13 +95,17 @@ export default class MainScene extends Phaser.Scene {
                 this.ct2.setDepth(2);
                 this.ct2.displayWidth = width;
                 this.ct2.displayHeight = height;
-                this.cameras.main.fadeOut(1000, 0, 0, 0);
+                this.cameras.main.fadeOut(500, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
                 this.cameras.main.on("camerafadeoutcomplete", () => {
                     this.scene.start('Scene2');
                 });
+            }
+            else {
+                drawerOpen2 = false;
+                this.ct2.destroy();
             }
         });
 
@@ -137,13 +116,17 @@ export default class MainScene extends Phaser.Scene {
                 this.ct3.setDepth(1);
                 this.ct3.displayWidth = width;
                 this.ct3.displayHeight = height;
-                this.cameras.main.fadeOut(1000, 0, 0, 0);
+                this.cameras.main.fadeOut(500, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
                 this.cameras.main.on("camerafadeoutcomplete", () => {
                     this.scene.start('Scene3');
                 });
+            }
+            else {
+                drawerOpen3 = false;
+                this.ct3.destroy();
             }
         });
     }

@@ -6,17 +6,22 @@ export default class Scene2 extends Phaser.Scene {
 
     preload() {
         this.add.image(0, 0, 'scene2').setOrigin(0, 0);
-        const zone1 = this.add.zone(615, 375, 220, 100).setOrigin(0, 0).setInteractive();
 
-        const graphics = this.add.graphics();
-        graphics.lineStyle(2, 0xff0000);
-        graphics.strokeRect(zone1.x, zone1.y, zone1.input.hitArea.width, zone1.input.hitArea.height);
+        //ui
+        this.add.image(0, 0, 'ui').setOrigin(0, 0);
+        const ui1 = this.add.zone(26, 10, 80, 80).setOrigin(0, 0).setInteractive();//返回
+        const ui2 = this.add.zone(816, 0, 288, 109).setOrigin(0, 0).setInteractive();//主菜单
+        const ui3 = this.add.zone(1815, 10, 80, 80).setOrigin(0, 0).setInteractive();//设置
 
-        zone1.on('pointerdown', () => {
-            this.cameras.main.fadeOut(1000, 0, 0, 0);
-            this.cameras.main.on('camerafadeoutcomplete', () => {
-                this.scene.start('MainScene');
-            });
+        ui1.on('pointerdown', () => {
+            this.scene.start('MainScene');
         });
+        ui2.on('pointerdown', () => {
+            this.scene.start('Menu');
+        });
+        ui3.on('pointerdown', () => {
+            this.scene.start('Setting');
+        });
+
     }
 }
