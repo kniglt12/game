@@ -46,11 +46,11 @@ export default class MainScene extends Phaser.Scene {
         const drawerZone3 = this.add.zone(1190, 110, 450, 200).setOrigin(0, 0).setInteractive();
 
         // 显示交互区域
-        const graphics = this.add.graphics();
-        graphics.lineStyle(2, 0xff0000);
-        graphics.strokeRect(drawerZone1.x, drawerZone1.y, drawerZone1.input.hitArea.width, drawerZone1.input.hitArea.height);
-        graphics.strokeRect(drawerZone2.x, drawerZone2.y, drawerZone2.input.hitArea.width, drawerZone2.input.hitArea.height);
-        graphics.strokeRect(drawerZone3.x, drawerZone3.y, drawerZone3.input.hitArea.width, drawerZone3.input.hitArea.height);
+        // const graphics = this.add.graphics();
+        // graphics.lineStyle(2, 0xff0000);
+        // graphics.strokeRect(drawerZone1.x, drawerZone1.y, drawerZone1.input.hitArea.width, drawerZone1.input.hitArea.height);
+        // graphics.strokeRect(drawerZone2.x, drawerZone2.y, drawerZone2.input.hitArea.width, drawerZone2.input.hitArea.height);
+        // graphics.strokeRect(drawerZone3.x, drawerZone3.y, drawerZone3.input.hitArea.width, drawerZone3.input.hitArea.height);
 
         // 抽屉状态
         if (drawerOpen1) {

@@ -26,11 +26,11 @@ export default class Scene1 extends Phaser.Scene {
         const zone2 = this.add.zone(1090, 355, 70, 80).setOrigin(0, 0).setInteractive();
         const zone3 = this.add.zone(1550, 220, 170, 160).setOrigin(0, 0).setInteractive();
 
-        const graphics = this.add.graphics();
-        graphics.lineStyle(2, 0xff0000);
-        graphics.strokeRect(zone1.x, zone1.y, zone1.input.hitArea.width, zone1.input.hitArea.height);
-        graphics.strokeRect(zone2.x, zone2.y, zone2.input.hitArea.width, zone2.input.hitArea.height);
-        graphics.strokeRect(zone3.x, zone3.y, zone3.input.hitArea.width, zone3.input.hitArea.height);
+        // const graphics = this.add.graphics();
+        // graphics.lineStyle(2, 0xff0000);
+        // graphics.strokeRect(zone1.x, zone1.y, zone1.input.hitArea.width, zone1.input.hitArea.height);
+        // graphics.strokeRect(zone2.x, zone2.y, zone2.input.hitArea.width, zone2.input.hitArea.height);
+        // graphics.strokeRect(zone3.x, zone3.y, zone3.input.hitArea.width, zone3.input.hitArea.height);
 
 
         //ui
@@ -58,35 +58,35 @@ export default class Scene1 extends Phaser.Scene {
         zone1.on('pointerdown', () => {
             if (!flag1) {
                 flag1 = 1;
-                this.cameras.main.fadeOut(3000, 0, 0, 0);
+                this.cameras.main.fadeOut(2000, 0, 0, 0);
             }
         });
 
         this.cameras.main.on("camerafadeoutcomplete", () => {
             // console.log("淡出完成！");
-            this.cameras.main.fadeIn(3000, 0, 0, 0);
+            this.cameras.main.fadeIn(2000, 0, 0, 0);
         });
-        this.cameras.main.on("camerafadeincomplete", () => {
-            // console.log("淡入完成！");
-            finished1 = true;
-            this.checkReturnToMainScene();
-        });
+        // this.cameras.main.on("camerafadeincomplete", () => {
+        //     // console.log("淡入完成！");
+        //     finished1 = true;
+        //     this.checkReturnToMainScene();
+        // });
 
 
         //闹钟
         zone2.once('pointerdown', () => {
-            if (!finished2) {
-                this.scene.start('Scene1_1');
-                finished2 = true;
-                this.checkReturnToMainScene();
-            }
+            // if (!finished2) {
+            this.scene.start('Scene1_1');
+            //     finished2 = true;
+            //     this.checkReturnToMainScene();
+            // }
         });
 
 
         if (!pt7Find) {
             const pts7 = this.add.image(0, 0, 'pts7').setOrigin(0, 0);
             const zonex = this.add.zone(1160, 425, 50, 20).setOrigin(0, 0).setInteractive();
-            graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            // graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
             zonex.once('pointerdown', () => {
                 let wsPt7 = this.add.image(0, 0, 'ws_pt7').setOrigin(0, 0);
                 pts7.destroy();
@@ -106,7 +106,7 @@ export default class Scene1 extends Phaser.Scene {
         if (!pt8Find) {
             const pts8 = this.add.image(0, 0, 'pts8').setOrigin(0, 0);
             const zonex = this.add.zone(1521, 338, 47, 53).setOrigin(0, 0).setInteractive();
-            graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            // graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
             zonex.once('pointerdown', () => {
                 let wsPt8 = this.add.image(0, 0, 'ws_pt8').setOrigin(0, 0);
                 pts8.destroy();
@@ -126,7 +126,7 @@ export default class Scene1 extends Phaser.Scene {
         if (!pt9Find) {
             const pts9 = this.add.image(0, 0, 'pts9').setOrigin(0, 0);
             const zonex = this.add.zone(590, 427, 36, 24).setOrigin(0, 0).setInteractive();
-            graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            // graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
             zonex.once('pointerdown', () => {
                 let wsPt9 = this.add.image(0, 0, 'ws_pt9').setOrigin(0, 0);
                 pts9.destroy();
