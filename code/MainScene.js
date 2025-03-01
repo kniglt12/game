@@ -10,6 +10,16 @@ export default class MainScene extends Phaser.Scene {
 
     create() {
         // this.scene.start('Scene1');
+
+
+
+
+        // 获取游戏画布的宽度和高度
+        const { width, height } = this.scale;
+
+        // 添加背景图像到场景中
+        const background = this.add.image(0, 0, 'ct').setOrigin(0, 0);
+
         //ui
         this.add.image(0, 0, 'ui').setOrigin(0, 0);
         // console.log('add ui');
@@ -26,14 +36,6 @@ export default class MainScene extends Phaser.Scene {
         ui3.on('pointerdown', () => {
             this.scene.start('Setting');
         });
-
-
-
-        // 获取游戏画布的宽度和高度
-        const { width, height } = this.scale;
-
-        // 添加背景图像到场景中
-        const background = this.add.image(0, 0, 'ct').setOrigin(0, 0);
 
         // 调整背景图像的大小以适应画布
         background.displayWidth = width;
