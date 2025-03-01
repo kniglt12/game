@@ -1,3 +1,4 @@
+import { pt1Find, pt2Find, pt3Find, pt4Find, pt5Find, pt6Find, pt7Find, pt8Find, pt9Find } from './global.js';
 export default class Pt extends Phaser.Scene {
 
     constructor() {
@@ -11,40 +12,75 @@ export default class Pt extends Phaser.Scene {
     create() {
         this.add.image(0, 0, 'pt').setOrigin(0, 0);
 
+        //ui
+        this.add.image(0, 0, 'ui').setOrigin(0, 0);
+        // console.log('add ui');
+        const ui1 = this.add.zone(26, 10, 80, 80).setOrigin(0, 0).setInteractive();//返回
+        const ui2 = this.add.zone(816, 0, 288, 109).setOrigin(0, 0).setInteractive();//主菜单
+        const ui3 = this.add.zone(1815, 10, 80, 80).setOrigin(0, 0).setInteractive();//设置
+
+        ui1.on('pointerdown', () => {
+            this.scene.start('Menu');
+        });
+        ui2.on('pointerdown', () => {
+            this.scene.start('Menu');
+        });
+        ui3.on('pointerdown', () => {
+            this.scene.start('Setting');
+        });
+
         const getRandomPosition = () => ({
             x: Phaser.Math.Between(0, this.scale.width - 100),
             y: Phaser.Math.Between(0, this.scale.height - 100)
         });
+        if (pt1Find == 1) {
+            this.pt1 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt1').setOrigin(0, 0).setInteractive();
+            this.pt1.setDepth(2);
+            this.input.setDraggable(this.pt1);
+        }
+        if (pt2Find == 1) {
+            this.pt2 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt2').setOrigin(0, 0).setInteractive();
+            this.pt2.setDepth(2);
+            this.input.setDraggable(this.pt2);
+        }
+        if (pt3Find == 1) {
+            this.pt3 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt3').setOrigin(0, 0).setInteractive();
+            this.pt3.setDepth(2);
+            this.input.setDraggable(this.pt3);
+        }
+        if (pt4Find == 1) {
+            this.pt4 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt4').setOrigin(0, 0).setInteractive();
+            this.pt4.setDepth(2);
+            this.input.setDraggable(this.pt4);
+        }
+        if (pt5Find == 1) {
+            this.pt5 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt5').setOrigin(0, 0).setInteractive();
+            this.pt5.setDepth(2);
+            this.input.setDraggable(this.pt5);
+        }
+        if (pt6Find == 1) {
+            this.pt6 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt6').setOrigin(0, 0).setInteractive();
+            this.pt6.setDepth(2);
+            this.input.setDraggable(this.pt6);
+        }
+        if (pt7Find == 1) {
+            this.pt7 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt7').setOrigin(0, 0).setInteractive();
+            this.pt7.setDepth(2);
+            this.input.setDraggable(this.pt7);
+        }
+        if (pt8Find == 1) {
+            this.pt8 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt8').setOrigin(0, 0).setInteractive();
+            this.pt8.setDepth(2);
+            this.input.setDraggable(this.pt8);
+        }
+        if (pt9Find == 1) {
+            this.pt9 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt9').setOrigin(0, 0).setInteractive();
+            this.pt9.setDepth(2);
+            this.input.setDraggable(this.pt9);
+        }
 
-        this.pt1 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt1').setOrigin(0, 0).setInteractive();
-        this.pt2 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt2').setOrigin(0, 0).setInteractive();
-        this.pt3 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt3').setOrigin(0, 0).setInteractive();
-        this.pt4 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt4').setOrigin(0, 0).setInteractive();
-        this.pt5 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt5').setOrigin(0, 0).setInteractive();
-        this.pt6 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt6').setOrigin(0, 0).setInteractive();
-        this.pt7 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt7').setOrigin(0, 0).setInteractive();
-        this.pt8 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt8').setOrigin(0, 0).setInteractive();
-        this.pt9 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt9').setOrigin(0, 0).setInteractive();
 
-        this.pt1.setDepth(2);
-        this.pt2.setDepth(2);
-        this.pt3.setDepth(2);
-        this.pt4.setDepth(2);
-        this.pt5.setDepth(2);
-        this.pt6.setDepth(2);
-        this.pt7.setDepth(2);
-        this.pt8.setDepth(2);
-        this.pt9.setDepth(2);
 
-        this.input.setDraggable(this.pt1);
-        this.input.setDraggable(this.pt2);
-        this.input.setDraggable(this.pt3);
-        this.input.setDraggable(this.pt4);
-        this.input.setDraggable(this.pt5);
-        this.input.setDraggable(this.pt6);
-        this.input.setDraggable(this.pt7);
-        this.input.setDraggable(this.pt8);
-        this.input.setDraggable(this.pt9);
 
         let correctPositions = {
             pt1: { x: 294.03651115618675, y: 105.76064908722105 },
