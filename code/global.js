@@ -36,3 +36,8 @@ export function setPt8Find(value) {
 export function setPt9Find(value) {
     pt9Find = value;
 }
+
+export let sum = 0;
+export function setSum(value) {
+    sum = value;
+}

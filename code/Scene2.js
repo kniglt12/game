@@ -1,4 +1,5 @@
 import { pt4Find, pt5Find, pt6Find, setPt4Find, setPt5Find, setPt6Find } from './global.js';
+import { sum, setSum } from './global.js';
 export default class Scene2 extends Phaser.Scene {
 
     constructor() {
@@ -24,6 +25,9 @@ export default class Scene2 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
+        this.add.image(1584, 954, 'ptjd').setOrigin(0, 0);
+        const ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
+
         //拼图
         if (!pt4Find) {
             const pts4 = this.add.image(0, 0, 'pts4').setOrigin(0, 0);
@@ -42,6 +46,8 @@ export default class Scene2 extends Phaser.Scene {
                     });
                 });
                 setPt4Find(true);
+                setSum(sum + 1);
+                ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
 
@@ -62,6 +68,8 @@ export default class Scene2 extends Phaser.Scene {
                     });
                 });
                 setPt5Find(true);
+                setSum(sum + 1);
+                ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
 
@@ -82,6 +90,8 @@ export default class Scene2 extends Phaser.Scene {
                     });
                 });
                 setPt6Find(true);
+                setSum(sum + 1);
+                ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
     }

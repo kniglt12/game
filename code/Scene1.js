@@ -1,5 +1,8 @@
 import { pt7Find, pt8Find, pt9Find } from './global.js';
 import { setPt7Find, setPt8Find, setPt9Find } from './global.js'; // 添加 setter 函数的导入
+import { sum } from './global.js';
+import { setSum } from './global.js';
+
 let finished2 = false;
 let finished1 = false;
 export default class Scene1 extends Phaser.Scene {
@@ -49,6 +52,9 @@ export default class Scene1 extends Phaser.Scene {
         ui3.on('pointerdown', () => {
             this.scene.start('Setting');
         });
+
+        this.add.image(1584, 954, 'ptjd').setOrigin(0, 0);
+        const ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
 
 
 
@@ -100,6 +106,8 @@ export default class Scene1 extends Phaser.Scene {
                     });
                 });
                 setPt7Find(true);
+                setSum(sum + 1);
+                ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
 
@@ -120,6 +128,8 @@ export default class Scene1 extends Phaser.Scene {
                     });
                 });
                 setPt8Find(true);
+                setSum(sum + 1);
+                ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
 
@@ -140,6 +150,8 @@ export default class Scene1 extends Phaser.Scene {
                     });
                 });
                 setPt9Find(true);
+                setSum(sum + 1);
+                ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
     }
