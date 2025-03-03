@@ -53,7 +53,7 @@ export default class Scene1 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        this.add.image(1584, 954, 'ptjd').setOrigin(0, 0);
+        this.add.image(1569, 890, 'ptjd').setOrigin(0, 0);
         const ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
 
 

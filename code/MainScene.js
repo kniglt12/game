@@ -38,7 +38,7 @@ export default class MainScene extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        this.add.image(1584, 954, 'ptjd').setOrigin(0, 0);
+        this.add.image(1569, 890, 'ptjd').setOrigin(0, 0);
         const ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
         // 调整背景图像的大小以适应画布
         background.displayWidth = width;
