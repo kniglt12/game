@@ -1,3 +1,6 @@
+import { pt1Find, pt2Find, pt3Find } from './global.js';
+import { setPt1Find, setPt2Find, setPt3Find } from './global.js';
+
 export default class Scene3 extends Phaser.Scene {
 
     constructor() {
@@ -23,5 +26,64 @@ export default class Scene3 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
+        if (!pt1Find) {
+            const pts1 = this.add.image(0, 0, 'pts1').setOrigin(0, 0);
+            const zonex = this.add.zone(634, 823, 41, 46).setOrigin(0, 0).setInteractive();
+            // graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            zonex.once('pointerdown', () => {
+                let jsPt1 = this.add.image(0, 0, 'js_pt1').setOrigin(0, 0);
+                pts1.destroy();
+                this.time.delayedCall(500, () => {
+                    this.input.once('pointerdown', () => {
+                        if (jsPt1) {
+                            // console.log('destroy jsPt1');
+                            jsPt1.destroy();
+                            jsPt1 = null;
+                        }
+                    });
+                });
+                setPt1Find(true);
+            });
+        }
+
+        if (!pt2Find) {
+            const pts2 = this.add.image(0, 0, 'pts2').setOrigin(0, 0);
+            const zonex = this.add.zone(711, 402, 52, 29).setOrigin(0, 0).setInteractive();
+            // graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            zonex.once('pointerdown', () => {
+                let jsPt2 = this.add.image(0, 0, 'js_pt2').setOrigin(0, 0);
+                pts2.destroy();
+                this.time.delayedCall(500, () => {
+                    this.input.once('pointerdown', () => {
+                        if (jsPt2) {
+                            // console.log('destroy jsPt2');
+                            jsPt2.destroy();
+                            jsPt2 = null;
+                        }
+                    });
+                });
+                setPt2Find(true);
+            });
+        }
+
+        if (!pt3Find) {
+            const pts3 = this.add.image(0, 0, 'pts3').setOrigin(0, 0);
+            const zonex = this.add.zone(1254, 293, 26, 36).setOrigin(0, 0).setInteractive();
+            // graphics.strokeRect(zonex.x, zonex.y, zonex.input.hitArea.width, zonex.input.hitArea.height);
+            zonex.once('pointerdown', () => {
+                let jsPt3 = this.add.image(0, 0, 'js_pt3').setOrigin(0, 0);
+                pts3.destroy();
+                this.time.delayedCall(500, () => {
+                    this.input.once('pointerdown', () => {
+                        if (jsPt3) {
+                            // console.log('destroy jsPt3');
+                            jsPt3.destroy();
+                            jsPt3 = null;
+                        }
+                    });
+                });
+                setPt3Find(true);
+            });
+        }
     }
 }

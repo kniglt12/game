@@ -76,7 +76,7 @@ export default class MainScene extends Phaser.Scene {
                 this.ct1.setDepth(1);
                 this.ct1.displayWidth = width;
                 this.ct1.displayHeight = height;
-                this.cameras.main.fadeOut(500, 0, 0, 0);
+                this.cameras.main.fadeOut(300, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
@@ -97,7 +97,7 @@ export default class MainScene extends Phaser.Scene {
                 this.ct2.setDepth(2);
                 this.ct2.displayWidth = width;
                 this.ct2.displayHeight = height;
-                this.cameras.main.fadeOut(500, 0, 0, 0);
+                this.cameras.main.fadeOut(300, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();
@@ -118,7 +118,7 @@ export default class MainScene extends Phaser.Scene {
                 this.ct3.setDepth(1);
                 this.ct3.displayWidth = width;
                 this.ct3.displayHeight = height;
-                this.cameras.main.fadeOut(500, 0, 0, 0);
+                this.cameras.main.fadeOut(300, 0, 0, 0);
                 drawerZone1.disableInteractive();
                 drawerZone2.disableInteractive();
                 drawerZone3.disableInteractive();

@@ -1,4 +1,6 @@
 import { pt1Find, pt2Find, pt3Find, pt4Find, pt5Find, pt6Find, pt7Find, pt8Find, pt9Find } from './global.js';
+import { setPt1Find, setPt2Find, setPt3Find, setPt4Find, setPt5Find, setPt6Find, setPt7Find, setPt8Find, setPt9Find } from './global.js'; // 添加 setter 函数的导入
+
 export default class Pt extends Phaser.Scene {
 
     constructor() {
@@ -9,6 +11,7 @@ export default class Pt extends Phaser.Scene {
     preload() {
 
     }
+
     create() {
         this.add.image(0, 0, 'pt').setOrigin(0, 0);
 
@@ -33,54 +36,6 @@ export default class Pt extends Phaser.Scene {
             x: Phaser.Math.Between(0, this.scale.width - 100),
             y: Phaser.Math.Between(0, this.scale.height - 100)
         });
-        if (pt1Find == 1) {
-            this.pt1 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt1').setOrigin(0, 0).setInteractive();
-            this.pt1.setDepth(2);
-            this.input.setDraggable(this.pt1);
-        }
-        if (pt2Find == 1) {
-            this.pt2 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt2').setOrigin(0, 0).setInteractive();
-            this.pt2.setDepth(2);
-            this.input.setDraggable(this.pt2);
-        }
-        if (pt3Find == 1) {
-            this.pt3 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt3').setOrigin(0, 0).setInteractive();
-            this.pt3.setDepth(2);
-            this.input.setDraggable(this.pt3);
-        }
-        if (pt4Find == 1) {
-            this.pt4 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt4').setOrigin(0, 0).setInteractive();
-            this.pt4.setDepth(2);
-            this.input.setDraggable(this.pt4);
-        }
-        if (pt5Find == 1) {
-            this.pt5 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt5').setOrigin(0, 0).setInteractive();
-            this.pt5.setDepth(2);
-            this.input.setDraggable(this.pt5);
-        }
-        if (pt6Find == 1) {
-            this.pt6 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt6').setOrigin(0, 0).setInteractive();
-            this.pt6.setDepth(2);
-            this.input.setDraggable(this.pt6);
-        }
-        if (pt7Find == 1) {
-            this.pt7 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt7').setOrigin(0, 0).setInteractive();
-            this.pt7.setDepth(2);
-            this.input.setDraggable(this.pt7);
-        }
-        if (pt8Find == 1) {
-            this.pt8 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt8').setOrigin(0, 0).setInteractive();
-            this.pt8.setDepth(2);
-            this.input.setDraggable(this.pt8);
-        }
-        if (pt9Find == 1) {
-            this.pt9 = this.add.sprite(getRandomPosition().x, getRandomPosition().y, 'pt9').setOrigin(0, 0).setInteractive();
-            this.pt9.setDepth(2);
-            this.input.setDraggable(this.pt9);
-        }
-
-
-
 
         let correctPositions = {
             pt1: { x: 294.03651115618675, y: 105.76064908722105 },
@@ -96,36 +51,52 @@ export default class Pt extends Phaser.Scene {
 
         let snapRange = 50; // 磁吸范围
 
-        this.input.on('dragstart', (pointer, gameObject) => {
-            this.currentDepth += 1;
-            gameObject.setDepth(this.currentDepth); // 将拖拽的精灵设置为最高深度
-        });
+        const createPt = (key, find, setFind) => {
+            // console.log('createPt', key, find);
+            if (find !== 0) {
+                const position = find === 2 ? correctPositions[key] : getRandomPosition();
+                const pt = this.add.sprite(position.x, position.y, key).setOrigin(0, 0).setInteractive();
+                pt.setDepth(find === 2 ? 1 : 2);
+                if (find === 2) {
+                    console.log('disableInteractive', key);
+                    pt.disableInteractive();
+                } else {
+                    this.input.setDraggable(pt);
+                    pt.setInteractive({ draggable: true });
+                    console.log('setInteractive', key);
+                    pt.on('dragstart', () => {
+                        this.currentDepth += 1;
+                        pt.setDepth(this.currentDepth);
+                    });
 
-        this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-            gameObject.x = dragX;
-            gameObject.y = dragY;
-        });
+                    pt.on('drag', (pointer, dragX, dragY) => {
+                        pt.x = dragX;
+                        pt.y = dragY;
+                    });
 
-        this.input.on('dragend', (pointer, gameObject) => {
-            let correctPosition = correctPositions[gameObject.texture.key];
-            if (Phaser.Math.Distance.Between(gameObject.x, gameObject.y, correctPosition.x, correctPosition.y) < snapRange) {
-                gameObject.x = correctPosition.x;
-                gameObject.y = correctPosition.y;
-                gameObject.setDepth(1);
-                gameObject.disableInteractive(); // 禁用拖拽
+                    pt.on('dragend', () => {
+                        const correctPosition = correctPositions[key];
+                        if (Phaser.Math.Distance.Between(pt.x, pt.y, correctPosition.x, correctPosition.y) < snapRange) {
+                            pt.x = correctPosition.x;
+                            pt.y = correctPosition.y;
+                            pt.setDepth(1);
+                            pt.disableInteractive();
+                            setFind(2); // 正确调用对应的setter
+                            console.log(`${key} 已归位`);
+                        }
+                    });
+                }
             }
-        });
+        };
 
-        // this.input.keyboard.on('keydown-F', () => {
-        //     console.log(`let pt1_x=${this.pt1.x}, pt1_y=${this.pt1.y};`);
-        //     console.log(`let pt2_x=${this.pt2.x}, pt2_y=${this.pt2.y};`);
-        //     console.log(`let pt3_x=${this.pt3.x}, pt3_y=${this.pt3.y};`);
-        //     console.log(`let pt4_x=${this.pt4.x}, pt4_y=${this.pt4.y};`);
-        //     console.log(`let pt5_x=${this.pt5.x}, pt5_y=${this.pt5.y};`);
-        //     console.log(`let pt6_x=${this.pt6.x}, pt6_y=${this.pt6.y};`);
-        //     console.log(`let pt7_x=${this.pt7.x}, pt7_y=${this.pt7.y};`);
-        //     console.log(`let pt8_x=${this.pt8.x}, pt8_y=${this.pt8.y};`);
-        //     console.log(`let pt9_x=${this.pt9.x}, pt9_y=${this.pt9.y};`);
-        // });
+        createPt('pt1', pt1Find, setPt1Find);
+        createPt('pt2', pt2Find, setPt2Find);
+        createPt('pt3', pt3Find, setPt3Find);
+        createPt('pt4', pt4Find, setPt4Find);
+        createPt('pt5', pt5Find, setPt5Find);
+        createPt('pt6', pt6Find, setPt6Find);
+        createPt('pt7', pt7Find, setPt7Find);
+        createPt('pt8', pt8Find, setPt8Find);
+        createPt('pt9', pt9Find, setPt9Find);
     }
 }

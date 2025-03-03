@@ -25,8 +25,14 @@ export default class Menu extends Phaser.Scene {
         this.load.image('ws_pt9', 'images/ws_pt9.png');
 
         this.load.image('scene2', 'images/shj.png');//售货架
+        this.load.image('shj_pt4', 'images/shj_pt4.png');
+        this.load.image('shj_pt5', 'images/shj_pt5.png');
+        this.load.image('shj_pt6', 'images/shj_pt6.png');
 
         this.load.image('scene3', 'images/js.png');//教室
+        this.load.image('js_pt1', 'images/js_pt1.png');
+        this.load.image('js_pt2', 'images/js_pt2.png');
+        this.load.image('js_pt3', 'images/js_pt3.png');
 
         this.load.image('pt', 'images/pt.png');//拼图
         this.load.image('pt1', 'images/pt1.png');
