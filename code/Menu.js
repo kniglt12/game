@@ -24,6 +24,8 @@ export default class Menu extends Phaser.Scene {
         this.load.image('ws_pt7', 'images/ws_pt7.png');
         this.load.image('ws_pt8', 'images/ws_pt8.png');
         this.load.image('ws_pt9', 'images/ws_pt9.png');
+        this.load.image('dn', 'images/dn.png');//电脑
+        this.load.image('dn1', 'images/dn2.png');
 
         this.load.image('scene2', 'images/shj.png');//售货架
         this.load.image('shj_pt4', 'images/shj_pt4.png');
@@ -63,7 +65,7 @@ export default class Menu extends Phaser.Scene {
         this.load.image('lt1', 'images/lt2.png');
     }
     create() {
-        // this.scene.start('Scene3');
+        this.scene.start('Scene1');
 
         this.add.image(0, 0, 'menu').setOrigin(0, 0);
 

@@ -88,6 +88,9 @@ export default class Scene1 extends Phaser.Scene {
             // }
         });
 
+        zone3.once('pointerdown', () => {
+            this.scene.start('Scene1_2');
+        });
 
         if (!pt7Find) {
             const pts7 = this.add.image(0, 0, 'pts7').setOrigin(0, 0);

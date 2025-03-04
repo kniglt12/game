@@ -1,12 +1,12 @@
 
-export default class Scene3_1 extends Phaser.Scene {
+export default class Scene1_2 extends Phaser.Scene {
 
     constructor() {
-        super({ key: 'Scene3_1' });
+        super({ key: 'Scene1_2' });
     }
 
     preload() {
-        this.add.image(0, 0, 'ks').setOrigin(0, 0);
+        this.add.image(0, 0, 'dn').setOrigin(0, 0);
 
         //ui
         this.add.image(0, 0, 'ui').setOrigin(0, 0);
@@ -15,7 +15,7 @@ export default class Scene3_1 extends Phaser.Scene {
         const ui3 = this.add.zone(1815, 10, 80, 80).setOrigin(0, 0).setInteractive();//设置
 
         ui1.on('pointerdown', () => {
-            this.scene.start('Scene3');
+            this.scene.start('Scene1');
         });
         ui2.on('pointerdown', () => {
             this.scene.start('Menu');
@@ -24,7 +24,7 @@ export default class Scene3_1 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        const zon1 = this.add.zone(720, 480, 350, 350).setOrigin(0, 0).setInteractive();
+        const zon1 = this.add.zone(670, 100, 700, 500).setOrigin(0, 0).setInteractive();
 
         // // Display the zone1 boundary
         // const graphics = this.add.graphics();
@@ -32,11 +32,11 @@ export default class Scene3_1 extends Phaser.Scene {
         // graphics.strokeRect(zon1.x, zon1.y, zon1.input.hitArea.width, zon1.input.hitArea.height);
 
         zon1.on('pointerdown', () => {
-            this.add.image(0, 0, 'ks1').setOrigin(0, 0);
+            this.add.image(0, 0, 'dn1').setOrigin(0, 0);
             zon1.removeInteractive();
             this.time.delayedCall(0, () => {
                 this.input.once('pointerdown', () => {
-                    this.scene.start('Scene3');
+                    this.scene.start('Scene1');
                 });
             });
 
