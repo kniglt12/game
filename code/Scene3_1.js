@@ -24,7 +24,23 @@ export default class Scene3 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
+        const zon1 = this.add.zone(720, 480, 350, 350).setOrigin(0, 0).setInteractive();
 
+        // // Display the zone1 boundary
+        // const graphics = this.add.graphics();
+        // graphics.lineStyle(2, 0xff0000);
+        // graphics.strokeRect(zon1.x, zon1.y, zon1.input.hitArea.width, zon1.input.hitArea.height);
+
+        zon1.on('pointerdown', () => {
+            this.add.image(0, 0, 'ks1').setOrigin(0, 0);
+            zon1.removeInteractive();
+            this.time.delayedCall(0, () => {
+                this.input.once('pointerdown', () => {
+                    this.scene.start('Scene3');
+                });
+            });
+
+        });
 
     }
 }

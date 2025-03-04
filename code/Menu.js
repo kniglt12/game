@@ -63,7 +63,7 @@ export default class Menu extends Phaser.Scene {
         this.load.image('lt1', 'images/lt2.png');
     }
     create() {
-        this.scene.start('Scene2');
+        // this.scene.start('Scene3');
 
         this.add.image(0, 0, 'menu').setOrigin(0, 0);
 
