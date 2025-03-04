@@ -96,5 +96,10 @@ export default class Scene3 extends Phaser.Scene {
                 ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
+
+        const zone1 = this.add.zone(0, 627, 222, 121).setOrigin(0, 0).setInteractive();
+        zone1.on('pointerdown', () => {
+            this.scene.start('Scene3_1');
+        });
     }
 }

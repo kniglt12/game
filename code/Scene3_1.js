@@ -2,7 +2,7 @@
 export default class Scene3 extends Phaser.Scene {
 
     constructor() {
-        super({ key: 'Scene2_1' });
+        super({ key: 'Scene3_1' });
     }
 
     preload() {

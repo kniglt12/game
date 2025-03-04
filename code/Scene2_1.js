@@ -27,9 +27,6 @@ export default class Scene2_1 extends Phaser.Scene {
 
         // 创建进度条
         const progressBar = this.add.graphics();
-        const progressBox = this.add.graphics();
-        progressBox.fillStyle(0x222222, 0.8);
-        progressBox.fillRect(620, 900, 600, 50);
 
         let progress = 0;
         let progressEvent;
@@ -41,12 +38,20 @@ export default class Scene2_1 extends Phaser.Scene {
                     progress += 0.03;
                     progressBar.clear();
                     progressBar.fillStyle(0x651035, 1);
-                    progressBar.fillRect(625, 905, 590 * progress, 40);
+                    progressBar.fillRect(615, 960, 690 * progress, 58);
 
                     if (progress >= 1) {
-                        progressBar.clear();
-                        this.add.image(0, 0, 'lt1').setOrigin(0, 0);
+
+                        progressBar.fillRect(615, 960, 690, 58);
                         progressEvent.remove();
+                        zon1.removeInteractive();
+                        this.time.delayedCall(200, () => {
+
+                            this.add.image(0, 0, 'lt1').setOrigin(0, 0);
+                            this.input.once('pointerdown', () => {
+                                this.scene.start('Scene2');
+                            });
+                        });
                     }
                 },
                 loop: true
