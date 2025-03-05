@@ -9,6 +9,8 @@ export default class Menu extends Phaser.Scene {
         this.load.image('ui', 'images/ui.png');//ui
         this.load.image('ptjd', 'images/ptjd.png');//拼图进度
 
+        this.load.image('dhk', 'images/dhk.png');//对话框
+
         this.load.image('setting', 'images/setting.png');//设置
 
         this.load.image('ct', 'images/ct.png');//主界面抽屉
@@ -65,7 +67,7 @@ export default class Menu extends Phaser.Scene {
         this.load.image('lt1', 'images/lt2.png');
     }
     create() {
-        this.scene.start('Scene1');
+        // this.scene.start('Scene1');
 
         this.add.image(0, 0, 'menu').setOrigin(0, 0);
 
