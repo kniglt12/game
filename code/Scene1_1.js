@@ -40,7 +40,7 @@ export default class Scene1_1 extends Phaser.Scene {
         fenzhen.setOrigin(0.5, 0.98);
         miaozhen.setOrigin(0.5, 0.98);
 
-        const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+        const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
         const dhktext = this.add.text(385, 957, '“咔哒——闹钟指针停在了7:30”窗外的景色渐渐清晰。你知道，你应该起床上学了。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
         const dhktext3 = this.add.text(867, 907, '（调整闹钟）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });
         this.time.delayedCall(0, () => {

@@ -24,7 +24,7 @@ export default class Scene1_2 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+        const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
         const dhktext1 = this.add.text(543, 945, '屏幕亮起，熟悉的4399游戏加载界面闪过，却突然跳出一行文字', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
         const dhktext2 = this.add.text(611, 991, '‘警告！梦境侵蚀率15%——找到碎片，否则永远迷失！’', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
         const dhktext3 = this.add.text(867, 897, '（打开电脑）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });

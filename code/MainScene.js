@@ -58,7 +58,7 @@ export default class MainScene extends Phaser.Scene {
                     drawerZone3.disableInteractive();
                     ptjd.destroy();
                     ptsum.destroy();
-                    const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+                    const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
                     const dhktext = this.add.text(367, 937, '（卧室）用冰棍棒削成的竹蜻蜓静静夹在作业本内页，抽屉里封存着某个暑假的夕阳。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
                     ts_ct1 = true;
                     this.time.delayedCall(0, () => {
@@ -99,7 +99,7 @@ export default class MainScene extends Phaser.Scene {
                     drawerZone3.disableInteractive();
                     ptjd.destroy();
                     ptsum.destroy();
-                    const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+                    const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
                     const dhktext = this.add.text(259, 937, '（小卖部）玻璃瓶中的彩色汽水折射出琥珀色光斑，拉开抽屉，你闻到辣条混杂无花果丝的潮湿气息。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
                     ts_ct2 = true;
                     this.time.delayedCall(0, () => {
@@ -136,7 +136,7 @@ export default class MainScene extends Phaser.Scene {
                     drawerZone3.disableInteractive();
                     ptjd.destroy();
                     ptsum.destroy();
-                    const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+                    const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
                     const dhktext = this.add.text(383, 937, '（教室）布满粉笔灰的黑板凹槽里躺着半截白色粉笔，抽屉深处传来落笔的簌簌声。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
                     ts_ct3 = true;
                     this.time.delayedCall(0, () => {
@@ -191,7 +191,7 @@ export default class MainScene extends Phaser.Scene {
 
 
         if (ts_ct == false) {
-            const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+            const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
             const dhktext = this.add.text(437, 937, '每个抽屉对应不同的场景、包含不同的奇遇。打开抽屉，寻找那些沉睡的记忆……', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
             ts_ct = true;
             this.input.once('pointerdown', () => {

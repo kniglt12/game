@@ -24,7 +24,7 @@ export default class Scene3_1 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+        const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
         const dhktext1 = this.add.text(439, 945, '被阳光晒卷边的《 儿童书籍》静静躺在满是划痕与字迹的木质桌面上。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
         const dhktext2 = this.add.text(652, 991, '翻开132页,用修正液画满五角星的课程表掉落。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
         const dhktext3 = this.add.text(867, 897, '（看一本书）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });

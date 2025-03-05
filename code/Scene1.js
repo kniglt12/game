@@ -68,7 +68,7 @@ export default class Scene1 extends Phaser.Scene {
             if (!task1) {
                 ptjd.destroy();
                 ptsum.destroy();
-                dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+                dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
                 dhktext3 = this.add.text(867, 907, '（单击枕头）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });
                 dhktext = this.add.text(277, 957, '枕头下压着带锁日记本，封面用黄色荧光笔写着“绝密”。万籁俱寂，结束一天的劳累，你进入了梦乡……', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
                 this.time.delayedCall(0, () => {
