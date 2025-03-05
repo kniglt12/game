@@ -1,4 +1,4 @@
-
+import { setTask6 } from "./global.js";
 export default class Scene3_1 extends Phaser.Scene {
 
     constructor() {
@@ -42,6 +42,7 @@ export default class Scene3_1 extends Phaser.Scene {
                 // graphics.strokeRect(zon1.x, zon1.y, zon1.input.hitArea.width, zon1.input.hitArea.height);
 
                 zon1.on('pointerdown', () => {
+                    setTask6(true);
                     this.add.image(0, 0, 'ks1').setOrigin(0, 0);
                     zon1.removeInteractive();
                     this.time.delayedCall(0, () => {

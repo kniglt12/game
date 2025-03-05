@@ -1,3 +1,4 @@
+import { setTask2 } from "./global.js";
 export default class Scene1_1 extends Phaser.Scene {
 
     constructor() {
@@ -149,6 +150,7 @@ export default class Scene1_1 extends Phaser.Scene {
                     miaozhen.rotation = Phaser.Math.DegToRad(currentTime_m * 6);
                     // console.log(currentTime_s, currentTime_f, currentTime_m);
                     if (currentTime_s === 7 && currentTime_f === 30 && currentTime_m === 0) {
+                        setTask2(true);
                         this.input.off('dragstart');
                         this.input.off('drag');
                         this.cameras.main.fadeOut(500, 0, 0, 0);

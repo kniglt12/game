@@ -1,3 +1,4 @@
+import { setTask4 } from "./global.js";
 export default class Scene2_1 extends Phaser.Scene {
 
     constructor() {
@@ -50,7 +51,7 @@ export default class Scene2_1 extends Phaser.Scene {
                             progressBar.fillRect(615, 960, 690 * progress, 58);
 
                             if (progress >= 1) {
-
+                                setTask4(true);
                                 progressBar.fillRect(615, 960, 690, 58);
                                 progressEvent.remove();
                                 zon1.removeInteractive();

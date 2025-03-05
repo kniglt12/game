@@ -1,5 +1,6 @@
 import { pt4Find, pt5Find, pt6Find, setPt4Find, setPt5Find, setPt6Find } from './global.js';
 import { sum, setSum } from './global.js';
+import { task4, task5 } from './global.js';
 export default class Scene2 extends Phaser.Scene {
 
     constructor() {
@@ -94,9 +95,12 @@ export default class Scene2 extends Phaser.Scene {
                 ptsum.setText(`拼图收集进度: ${sum}/9`);
             });
         }
-        const zone1 = this.add.zone(793, 265, 129, 440).setOrigin(0, 0).setInteractive();
-        zone1.on('pointerdown', () => {
-            this.scene.start('Scene2_1');
-        });
+        if (!task4) {
+            const zone1 = this.add.zone(793, 265, 129, 440).setOrigin(0, 0).setInteractive();
+            zone1.on('pointerdown', () => {
+                this.scene.start('Scene2_1');
+            });
+        }
+
     }
 }

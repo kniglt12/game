@@ -2,9 +2,12 @@ import { pt7Find, pt8Find, pt9Find } from './global.js';
 import { setPt7Find, setPt8Find, setPt9Find } from './global.js'; // 添加 setter 函数的导入
 import { sum } from './global.js';
 import { setSum } from './global.js';
+import { task1, task2, task3 } from './global.js';
+import { setTask1 } from './global.js';
 
 let finished2 = false;
 let finished1 = false;
+
 export default class Scene1 extends Phaser.Scene {
     constructor() {
         super({ key: 'Scene1' });
@@ -61,9 +64,8 @@ export default class Scene1 extends Phaser.Scene {
 
         // console.log('add ui done');
         //睡觉
-        let flag1 = 0;
-        zone1.on('pointerdown', () => {
-            if (!flag1) {
+        zone1.once('pointerdown', () => {
+            if (!task1) {
                 ptjd.destroy();
                 ptsum.destroy();
                 dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
@@ -76,7 +78,7 @@ export default class Scene1 extends Phaser.Scene {
                         this.cameras.main.fadeOut(2000, 0, 0, 0);
                     });
                 });
-                flag1 = 1;
+
 
             }
         });
@@ -88,6 +90,7 @@ export default class Scene1 extends Phaser.Scene {
             ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
             // console.log("淡出完成！");
             this.cameras.main.fadeIn(2000, 0, 0, 0);
+            setTask1(true);
 
         });
         // this.cameras.main.on("camerafadeincomplete", () => {
@@ -99,15 +102,16 @@ export default class Scene1 extends Phaser.Scene {
 
         //闹钟
         zone2.once('pointerdown', () => {
-            // if (!finished2) {
-            this.scene.start('Scene1_1');
-            //     finished2 = true;
-            //     this.checkReturnToMainScene();
-            // }
+            if (!task2) {
+                this.scene.start('Scene1_1');
+            }
         });
 
+        //电脑
         zone3.once('pointerdown', () => {
-            this.scene.start('Scene1_2');
+            if (!task3) {
+                this.scene.start('Scene1_2');
+            }
         });
 
         if (!pt7Find) {
