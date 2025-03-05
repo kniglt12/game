@@ -53,24 +53,42 @@ export default class Scene1 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        this.add.image(1569, 890, 'ptjd').setOrigin(0, 0);
-        const ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
+        let ptjd = this.add.image(1569, 890, 'ptjd').setOrigin(0, 0);
+        let ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
 
-
+        let dhk;
+        let dhktext, dhktext3;
 
         // console.log('add ui done');
         //睡觉
         let flag1 = 0;
         zone1.on('pointerdown', () => {
             if (!flag1) {
+                ptjd.destroy();
+                ptsum.destroy();
+                dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+                dhktext3 = this.add.text(867, 907, '（单击枕头）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });
+                dhktext = this.add.text(277, 957, '枕头下压着带锁日记本，封面用黄色荧光笔写着“绝密”。万籁俱寂，结束一天的劳累，你进入了梦乡……', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
+                this.time.delayedCall(0, () => {
+                    this.input.once('pointerdown', () => {
+                        // dhk.destroy();
+                        // dhktext.destroy();
+                        this.cameras.main.fadeOut(2000, 0, 0, 0);
+                    });
+                });
                 flag1 = 1;
-                this.cameras.main.fadeOut(2000, 0, 0, 0);
+
             }
         });
 
         this.cameras.main.on("camerafadeoutcomplete", () => {
+            dhk.destroy();
+            dhktext.destroy();
+            ptjd = this.add.image(1569, 890, 'ptjd').setOrigin(0, 0);
+            ptsum = this.add.text(1610, 983, `拼图收集进度: ${sum}/9`, { fontSize: '32px', fill: '#651035', fontFamily: 'Arial' });
             // console.log("淡出完成！");
             this.cameras.main.fadeIn(2000, 0, 0, 0);
+
         });
         // this.cameras.main.on("camerafadeincomplete", () => {
         //     // console.log("淡入完成！");

@@ -24,23 +24,37 @@ export default class Scene3_1 extends Phaser.Scene {
             this.scene.start('Setting');
         });
 
-        const zon1 = this.add.zone(720, 480, 350, 350).setOrigin(0, 0).setInteractive();
+        const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
+        const dhktext1 = this.add.text(439, 945, '被阳光晒卷边的《 儿童书籍》静静躺在满是划痕与字迹的木质桌面上。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
+        const dhktext2 = this.add.text(652, 991, '翻开132页,用修正液画满五角星的课程表掉落。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
+        const dhktext3 = this.add.text(867, 897, '（看一本书）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });
+        this.time.delayedCall(0, () => {
+            this.input.once('pointerdown', () => {
+                dhk.destroy();
+                dhktext1.destroy();
+                dhktext2.destroy();
+                dhktext3.destroy();
+                const zon1 = this.add.zone(720, 480, 350, 350).setOrigin(0, 0).setInteractive();
 
-        // // Display the zone1 boundary
-        // const graphics = this.add.graphics();
-        // graphics.lineStyle(2, 0xff0000);
-        // graphics.strokeRect(zon1.x, zon1.y, zon1.input.hitArea.width, zon1.input.hitArea.height);
+                // // Display the zone1 boundary
+                // const graphics = this.add.graphics();
+                // graphics.lineStyle(2, 0xff0000);
+                // graphics.strokeRect(zon1.x, zon1.y, zon1.input.hitArea.width, zon1.input.hitArea.height);
 
-        zon1.on('pointerdown', () => {
-            this.add.image(0, 0, 'ks1').setOrigin(0, 0);
-            zon1.removeInteractive();
-            this.time.delayedCall(0, () => {
-                this.input.once('pointerdown', () => {
-                    this.scene.start('Scene3');
+                zon1.on('pointerdown', () => {
+                    this.add.image(0, 0, 'ks1').setOrigin(0, 0);
+                    zon1.removeInteractive();
+                    this.time.delayedCall(0, () => {
+                        this.input.once('pointerdown', () => {
+                            this.scene.start('Scene3');
+                        });
+                    });
+
                 });
             });
-
         });
+
+
 
     }
 }

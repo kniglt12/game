@@ -53,6 +53,9 @@ export default class MainScene extends Phaser.Scene {
                 this.ct1 = this.add.image(0, 0, 'ct1').setOrigin(0, 0);
                 this.ct1.setDepth(1);
                 if (ts_ct1 == false) {
+                    drawerZone1.disableInteractive();
+                    drawerZone2.disableInteractive();
+                    drawerZone3.disableInteractive();
                     ptjd.destroy();
                     ptsum.destroy();
                     const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
@@ -63,10 +66,6 @@ export default class MainScene extends Phaser.Scene {
                             // dhk.destroy();
                             // dhktext.destroy();
                             this.cameras.main.fadeOut(300, 0, 0, 0);
-                            drawerZone1.disableInteractive();
-                            drawerZone2.disableInteractive();
-                            drawerZone3.disableInteractive();
-
                             this.cameras.main.on("camerafadeoutcomplete", () => {
                                 this.scene.start('Scene1');
                             });
@@ -95,6 +94,9 @@ export default class MainScene extends Phaser.Scene {
                 this.ct2 = this.add.image(0, 0, 'ct2').setOrigin(0, 0);
                 this.ct2.setDepth(2);
                 if (ts_ct2 == false) {
+                    drawerZone1.disableInteractive();
+                    drawerZone2.disableInteractive();
+                    drawerZone3.disableInteractive();
                     ptjd.destroy();
                     ptsum.destroy();
                     const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
@@ -103,9 +105,6 @@ export default class MainScene extends Phaser.Scene {
                     this.time.delayedCall(0, () => {
                         this.input.once('pointerdown', () => {
                             this.cameras.main.fadeOut(300, 0, 0, 0);
-                            drawerZone1.disableInteractive();
-                            drawerZone2.disableInteractive();
-                            drawerZone3.disableInteractive();
                             this.cameras.main.on("camerafadeoutcomplete", () => {
                                 this.scene.start('Scene2');
                             });
@@ -132,6 +131,9 @@ export default class MainScene extends Phaser.Scene {
                 this.ct3 = this.add.image(0, 0, 'ct3').setOrigin(0, 0);
                 this.ct3.setDepth(1);
                 if (ts_ct3 == false) {
+                    drawerZone1.disableInteractive();
+                    drawerZone2.disableInteractive();
+                    drawerZone3.disableInteractive();
                     ptjd.destroy();
                     ptsum.destroy();
                     const dhk = this.add.image(100, 770, 'dhk').setOrigin(0, 0);
@@ -140,9 +142,7 @@ export default class MainScene extends Phaser.Scene {
                     this.time.delayedCall(0, () => {
                         this.input.once('pointerdown', () => {
                             this.cameras.main.fadeOut(300, 0, 0, 0);
-                            drawerZone1.disableInteractive();
-                            drawerZone2.disableInteractive();
-                            drawerZone3.disableInteractive();
+
                             this.cameras.main.on("camerafadeoutcomplete", () => {
                                 this.scene.start('Scene3');
                             });
