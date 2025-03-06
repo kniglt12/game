@@ -14,6 +14,9 @@ export default class Start extends Phaser.Scene {
         this.load.image('dhk', 'images/dhk.png');//对话框
 
         this.load.image('setting', 'images/setting.png');//设置
+        this.load.image('setting1', 'images/setting1.png');//设置1
+        this.load.image('setting2', 'images/setting2.png');//设置2
+        this.load.image('setting3', 'images/setting3.png');//设置3
 
         this.load.image('ct', 'images/ct.png');//主界面抽屉
         this.load.image('ct1', 'images/ct1.png');//左上
