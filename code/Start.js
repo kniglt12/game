@@ -4,7 +4,7 @@ export default class Start extends Phaser.Scene {
         super({ key: 'Start' });
     }
     preload() {
-        this.load.image('start', 'images/start1.png');//开始
+        this.load.image('startpage', 'images/startpage.png');//开始
 
         this.load.image('menu', 'images/menu.png');//主菜单
 
@@ -77,7 +77,7 @@ export default class Start extends Phaser.Scene {
     create() {
         // this.scene.start('Scene1');
 
-        this.add.image(0, 0, 'start').setOrigin(0, 0);
+        this.add.image(0, 0, 'startpage').setOrigin(0, 0);
 
         this.input.once('pointerdown', function () {
             this.scene.start('Menu');
