@@ -65,6 +65,9 @@ export default class Menu extends Phaser.Scene {
 
         this.load.image('lt', 'images/lt.png');//辣条
         this.load.image('lt1', 'images/lt2.png');
+
+        this.load.image('dz', 'images/dz.png');//弹珠
+        this.load.image('dz1', 'images/dz2.png');
     }
     create() {
         // this.scene.start('Scene1');
