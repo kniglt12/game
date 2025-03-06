@@ -24,8 +24,8 @@ export default class Scene2_1 extends Phaser.Scene {
             this.scene.start('Setting');
         });
         const dhk = this.add.image(58, 770, 'dhk').setOrigin(0, 0);
-        const dhktext1 = this.add.text(356, 945, '当你撕开辣条包装时，印着水浒人物的游戏卡牌出现在你眼前。老板手中的蒲扇突然静止，', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
-        const dhktext2 = this.add.text(636, 991, '辣椒油以慢动作滴落——渐渐浮现出卡片背面。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
+        const dhktext1 = this.add.text(299, 945, '你攥着零花钱，挑了心仪的辣条。撕开包装，“嘶啦” 一声，浓郁辣香扑鼻，红油顺着袋边滴下。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
+        const dhktext2 = this.add.text(621, 991, '辣麻辣鲜香瞬间在味蕾上绽放，点燃了童年的快乐。', { fontSize: '32px', fontFamily: 'Arial', color: '#000000' });
         const dhktext3 = this.add.text(885, 897, '（买辣条）', { fontSize: '32px', fontFamily: 'Arial', color: '#651035' });
         this.time.delayedCall(0, () => {
             this.input.once('pointerdown', () => {
