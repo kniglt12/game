@@ -104,5 +104,11 @@ export default class Scene3 extends Phaser.Scene {
                 this.scene.start('Scene3_1');
             });
         }
+        if (!task7) {
+            const zone2 = this.add.zone(0, 627, 222, 121).setOrigin(0, 0).setInteractive();
+            zone2.on('pointerdown', () => {
+                this.scene.start('Scene3_2');
+            });
+        }
     }
 }
