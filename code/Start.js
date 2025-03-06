@@ -4,7 +4,7 @@ export default class Start extends Phaser.Scene {
         super({ key: 'Start' });
     }
     preload() {
-        this.load.image('start', 'images/start.png');//开始
+        this.load.image('start', 'images/start1.png');//开始
 
         this.load.image('menu', 'images/menu.png');//主菜单
 
